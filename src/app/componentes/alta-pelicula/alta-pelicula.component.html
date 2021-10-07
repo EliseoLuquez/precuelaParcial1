@@ -1,0 +1,86 @@
+<form [formGroup]="formulario" (ngSubmit)="guardar()">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Alta Pelicula</h4>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="nombre">Nombre Pelicula</label>
+                        <input type="text" class="form-control" id="nombre" formControlName="nombre">
+                        <span class="text-danger"
+                            *ngIf="formulario.get('nombre')?.hasError('required')  && formulario.get('nombre')?.touched">
+                            Debes ingresar el nombre de pelicula.</span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="tipo">Tipo Pelicula</label>
+                        <select class="custom-select custom-select-lg form-control mb-3" formControlName="tipo">
+                            <option selected value="">Selecciona una opción</option>
+                            <option value="comedia">Comedia</option>
+                            <option value="infantil">Infantil</option>
+                            <option value="terror">Terror</option>
+                            <option value="accion">Acción</option>
+                        </select>
+                        <span class="text-danger"
+                            *ngIf="formulario.get('tipo')?.hasError('required') && formulario.get('tipo')?.touched">
+                            Debes seleccionar un tipo de pelicula.</span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="fechaEstreno">Fecha de Estreno</label>
+                    <input type="date" class="form-control" id="fechaEstreno" formControlName="fechaEstreno">
+                    <span class="text-danger"
+                        *ngIf="formulario.get('fechaEstreno')?.hasError('required') && formulario.get('fechaEstreno')?.touched">
+                        Debes seleccionar una fecha.</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cantidadPublico">Cantidad de Publico</label>
+                    <input type="text" class="form-control" id="cantidadPublico" formControlName="cantidadPublico">
+                    <span class="text-danger"
+                        *ngIf="formulario.get('cantidadPublico')?.hasError('required') && formulario.get('cantidadPublico')?.touched">
+                        Debes indicar la cantidad de publico.</span>
+                </div>
+
+                <!-- <div class="mb-3">
+                    <label for="actor">Actor</label>
+                    <input type="text" class="form-control" id="actor" formControlName="actor">
+                    <span class="text-danger"
+                        *ngIf="formulario.get('actor')?.hasError('required') && formulario.get('actor')?.touched">
+                        Debes completar el campo.</span>
+                </div> -->
+                <div class="mb-3">
+                    <label for="actores">Actores</label>
+                    <input type="text" class="form-control" id="actores" formControlName="actores">
+                    <span class="text-danger"
+                        *ngIf="formulario.get('actores')?.hasError('required') && formulario.get('actores')?.touched">
+                        Debes completar el campo.</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="imgPelicula">Cantidad de Publico</label>
+                    <input type="file" class="form-control" id="imgPelicula" (change)="selectFile($event)"
+                        formControlName="imgPelicula">
+                    <span class="text-danger"
+                        *ngIf="formulario.get('imgPelicula')?.hasError('required') && formulario.get('imgPelicula')?.touched">
+                        Debes subir una imagen.</span>
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit"
+                    [disabled]="formulario.invalid">Guardar</button>
+                <div *ngIf="imgPeli" class="progress mt-2">
+                    <!-- <div class="progress-bar progress-bar-info" role="progressbar" type="success"
+                        attr.aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100"
+                        [ngStyle]="{ width: percentage + '%' }">{{ percentage }}%
+                    </div> -->
+                <ngb-progressbar [value]="percentage" type="success" [showValue]="true">{{ percentage }}%</ngb-progressbar>
+                </div>
+            </div>
+            <div class="col-md-4 order-md-1">
+                <!-- <app-tabla-paises [paises]="listaPaises" (paisSeleccionado)="paisOrigenSeleccionado($event)"></app-tabla-paises> -->
+                <app-tabla-actor [actores]="listaActores" (actorSeleccionado)="asignarActorSeleccionado($event)">
+                </app-tabla-actor>
+            </div>
+        </div>
+    </div>
+</form>

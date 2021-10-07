@@ -1,0 +1,12 @@
+
+    <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Pais de origen</span>
+        <span class="badge badge-secondary badge-pill">3</span>
+    </h4>
+    <ul class="list-group mb-3" *ngFor="let pais of paises">
+        <li class="list-group-item d-flex justify-content-between lh-condensed" (click)="asignarPais(pais.name.common)">
+                <!-- <h6 class="my-0">{{pais.name.common}}</h6> -->
+                <img [src]="pais.flags.png">
+                <button type="button" class="btn" >{{pais.name.common}} </button>
+        </li>
+    </ul>

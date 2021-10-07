@@ -1,0 +1,22 @@
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre Apelido</th>
+                <th>Usuario</th>
+                <th>Email</th>
+                <th>Direccion</th>
+                <th>Pais</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let actor of actores" (click)="mostrarPeliculasActor(actor)">
+                <td>{{actor.nombre}} {{actor.apellido}}</td>
+                <td>{{actor.usuario}}</td>
+                <td>{{actor.email}}</td>
+                <td>{{actor.direccion}}</td>
+                <td>{{actor.paisOrigen}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

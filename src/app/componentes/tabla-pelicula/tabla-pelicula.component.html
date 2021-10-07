@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+  <div class="container">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Fecha de Estreno</th>
+                <th>Cantidad de Publico</th>
+                <th>Actores</th>
+                <th>Foto de la Pelicula</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let peli of peliculas" (click)="mostrarDetalle(peli)">
+                  <td >{{peli.nombre}}</td>
+                  <td>{{peli.tipo}}</td>
+                  <td>{{peli.fechaEstreno}}</td>
+                  <td>{{peli.cantidadPublico}}</td>
+                  <div *ngFor="let actor of peli.actores">
+                    <td>{{actor.nombre}} {{actor.apellido}}</td>
+                  </div>
+                  <td><img [src]="peli.imgUrl"></td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+</html>

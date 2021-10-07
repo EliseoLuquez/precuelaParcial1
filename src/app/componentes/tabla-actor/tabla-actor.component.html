@@ -1,0 +1,10 @@
+
+     <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Actor</h2>
+        <span class="badge badge-secondary badge-pill">3</span>
+    </h4>
+    <ul class="list-group mb-3" *ngFor="let actor of actores">
+        <li class="list-group-item d-flex justify-content-between lh-condensed" (click)="asignarActorSeleccionado(actor)">
+                <button type="button" class="btn">{{actor.nombre}} {{actor.apellido}}</button>
+        </li>
+    </ul>

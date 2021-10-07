@@ -1,0 +1,17 @@
+<h1 class="text-center">Busqueda Peliculas</h1>
+<br>
+<app-tabla-pelicula [peliculas]="listaPeliculas" (peliculaSeleccionada)="mostrarPeliSeleccionada($event)"></app-tabla-pelicula>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-4">
+        <app-detalle-pelicula *ngIf="peliSeleccionada" [peliculaDetalle]="peliSeleccionada"></app-detalle-pelicula>
+      </div>
+      <div class="col-md-4">
+        <app-tabla-actor *ngIf="peliSeleccionada" [actores]="listaActores"></app-tabla-actor>
+      </div>
+      <div class="col-md-4">
+        
+      </div>
+    </div>

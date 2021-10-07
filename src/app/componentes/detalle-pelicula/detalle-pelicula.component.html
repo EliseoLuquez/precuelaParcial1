@@ -1,0 +1,16 @@
+
+<div class="container">
+    <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Pelicula</h2>
+        <span class="badge badge-secondary badge-pill">3</span>
+    </h4>
+    <div class="row">
+        <div class="col-12">
+            <h6>Nombre: {{peliculaDetalle.nombre}}</h6>
+            <h6>Tipo: {{peliculaDetalle.tipo}}</h6>
+            <h6>Fecha de Estreno: {{peliculaDetalle.fechaEstreno}}</h6>
+            <h6>Cantidad de Publico: {{peliculaDetalle.cantidadPublico}}</h6>
+            <img class="form-control" [src]="peliculaDetalle.imgUrl">
+        </div>
+    </div>
+</div>
